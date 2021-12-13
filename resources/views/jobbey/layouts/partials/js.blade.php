@@ -7,7 +7,7 @@
     <script src="{{ asset('jobbey/assets/vendor/semantic/semantic.min.js') }}"></script>
     <script src="{{ asset('jobbey/assets/js/jquery.range-min.js') }}"></script>
     <script src="{{ asset('jobbey/assets/js/custom1.js') }}"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('jobbey/assets/js/sweetalert.js') }}"></script>
     <script src="{{ asset('jobbey/assets/js/mycustom.js') }}"></script>
     <script>
     window.oncontextmenu = function() {

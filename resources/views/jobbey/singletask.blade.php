@@ -18,7 +18,7 @@
       }
     @endphp
 @foreach ($element -> users as $user)
-    {{-- expr --}}
+
 
                 <div class="col-lg-9 col-md-8">
                     <div class="view_details">
@@ -207,6 +207,7 @@
                 <div class="col-lg-3 col-md-4 mainpage">
                     <div class="total_days mtp_30">4 days 5 hours left</div>
 
+
 @if (Auth::user() -> role == 'freelancer')
 
 
@@ -240,14 +241,18 @@
                                 <a href="#">Clear</a>
                             </div>
                         </div>
-                        <div class="ui fluid search selection dropdown skills-search">
-                            <input name="delivary_days" type="hidden" value="">
+                                                                                            @error('delivary_days')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                        <div class="ui fluid search selection dropdown skills-search" id="protin">
+
+                            <input name="delivary_days" type="hidden" value="" id="testdays">
                             <i class="dropdown icon"></i>
                             <input class="search" autocomplete="off" tabindex="0">
                             <span class="sizer" style=""></span>
                             <div class="default text">Select Days</div>
                             <div class="menu transition hidden" tabindex="-1">
-                                <div class="item selected" data-value="Job1">5 Days</div>
+                                <div class="item" data-value="5">5 Days</div>
                                 <div class="item" data-value="10">10 Days</div>
                                 <div class="item" data-value="15">15 Days</div>
                                 <div class="item" data-value="20">20 Days</div>
@@ -276,9 +281,9 @@
 @endforeach                
 @endforeach
 
-@else
+{{-- @else
 
-<a class="lr_btn" href="{{ route('user.signin') }}">Sign in Now</a>
+<a class="lr_btn" href="{{ route('user.signin') }}">Sign in Now</a> --}}
 
 @endif
 

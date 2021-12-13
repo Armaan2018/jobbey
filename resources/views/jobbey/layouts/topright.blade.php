@@ -98,14 +98,14 @@
                                                 <i class="fas fa-sort-down"></i>
                                             </a>
                                             <div class="dropdown-menu account-dropdown dropdown-menu-right">
-                                                <a class="link-item" href="jobbey/assets/my_freelancer_dashboard.html">Dashboard</a>
-                                                <a class="link-item" href="jobbey/assets/my_freelancer_setting.html">Setting</a>
+                                                <a class="link-item" href="{{ route('user.profile') }}">Dashboard</a>
+{{--                                                 <a class="link-item" href="jobbey/assets/my_freelancer_setting.html">Setting</a>
                                                 <a class="link-item" href="jobbey/assets/my_freelancer_messages.html">My Messages</a>
                                                 <a class="link-item" href="jobbey/assets/my_freelancer_jobs.html">My Jobs</a>
                                                 <a class="link-item" href="jobbey/assets/my_freelancer_bids.html">My Bids</a>
                                                 <a class="link-item" href="jobbey/assets/my_freelancer_portfolio.html">My Portfolio</a>
                                                 <a class="link-item" href="jobbey/assets/my_freelancer_bookmarks.html">My Bookmarks</a>
-                                                <a class="link-item" href="jobbey/assets/my_freelancer_payments.html">Payments</a>
+                                                <a class="link-item" href="jobbey/assets/my_freelancer_payments.html">Payments</a> --}}
                                                 <a class="link-item" href="#" id="logout_id">Logout</a>
 
                                                 <form id="logout_form" method="POST" action="{{ route('user.logout') }}">

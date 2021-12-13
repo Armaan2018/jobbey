@@ -12,8 +12,9 @@ class BasicController extends Controller
 {
     public function index()
     {
-        $allpost = Tasks::latest()->get();
-    	return view('jobbey.jobs',compact('allpost'));
+        $verifyed = User::all();
+        $allpost = Tasks::where('status',true)->get();
+    	return view('jobbey.jobs',compact('allpost','verifyed'));
     }
 
     public function showUserRegister()

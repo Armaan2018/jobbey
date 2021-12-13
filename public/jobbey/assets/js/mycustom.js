@@ -2,6 +2,15 @@
    $(document).ready(function(){
 
 
+  // let gettest = $('div#protin input[id = "protin"]');
+
+  // if (gettest ==  '') {
+  //   alert();
+  // }
+
+
+
+
 
    	$(document).on('click','#logout_id',function(e){
    		e.preventDefault();
@@ -60,6 +69,36 @@
 
 
 
+
+
+
+     });
+
+
+
+     $(document).on('click','a#hire_req_id',function(){
+      event.preventDefault();
+
+      let hire_id_attr = $(this).attr('hire_id_attr');
+
+
+
+
+
+      $.ajax({
+
+        url:'newagree/' + hire_id_attr,
+        success:function(response){
+
+
+
+         window.location.href = "/agreement/" + hire_id_attr;
+
+         
+
+        }
+
+      });
 
 
 

@@ -8,11 +8,11 @@
                 <div class="col-lg-3 col-md-4">
                     <div class="account_dt_left">
                         <div class="job-center-dt">
-                            <img src="images/homepage/candidates/img-1.jpg" alt="">
+                            <img src="{{URL::to('')}}/public/media/work/{{Auth::user()-> profileimage}}" id="uploadedimg" alt="">
                             <div class="job-urs-dts">
                                 <div class="dp_upload">
-                                    <input type="file" id="file">
-                                    <label for="file">Upload Photo</label>
+                                    <input type="file" id="file" disabled="">
+                                    <label for="file">Profile Picture</label>
                                 </div>
                                 <h4>John Doe</h4>
                                 <span>UX Designer</span>

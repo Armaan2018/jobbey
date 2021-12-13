@@ -7,6 +7,8 @@ use App\Models\Tasks;
 use App\Models\User;
 use App\Models\Applied;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
 
 
 class TaskController extends Controller
@@ -16,9 +18,10 @@ class TaskController extends Controller
     	return view('jobbey.postatask');
     }        
 
-    public function agreeShow()
+    public function agreeShow($id)
     {
-        return view('jobbey.agreement');
+        $agreeis = Tasks::where('id',$id)->latest()->take(1)->get();
+        return view('jobbey.agreement',compact('agreeis'));
     }    
 
 
@@ -110,13 +113,45 @@ class TaskController extends Controller
 
     public function singleTask($id)
     {
-    	$single = Tasks::where('id',$id)->take(1)->get();
-    	return view('jobbey.singletask',compact('single'));
+        if (Auth::guest()) {
+            return redirect()->route('user.signin');
+        }else{
+                    $drcptid = Crypt::decrypt($id);
+        $single = Tasks::where('id',$drcptid)->take(1)->get();
+        $allusres = User::all();
+        return view('jobbey.singletask',compact('single','allusres'));
+
+        }
+
+
+
+
     }
 
 
     public function singleConfirm(Request $request)
     {
+
+                $singrules = [
+
+            'bid_budget' => 'required',
+            'delivary_days' => 'required',
+
+
+
+
+        ];
+
+
+        $custom_msg = [
+
+            'delivary_days.required' => 'You Must Select Delivary Day',
+
+        ];
+
+
+
+        $this -> validate($request,$singrules,$custom_msg);
         
        $applied = Applied::create([
 
@@ -154,9 +189,18 @@ class TaskController extends Controller
 
       $rj -> status = false;
 
-      $rj -> update;
+
+      $allagree = $rj -> id;
 
 
-      return redirect() -> route('');
+      $rj -> update();
+
+
+      return redirect() -> route('agreement',$allagree);
+
+    
+
+
+   
     }
 }

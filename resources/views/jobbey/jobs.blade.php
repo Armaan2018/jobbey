@@ -556,8 +556,11 @@
 
                                             <div class="job-buttons">
                                                 <ul class="link-btn">
-                                                    <li><a href="jobbey/assets/#" class="link-j1" title="Apply Now">APPLY NOW</a></li>
-                                                    <li><a href="{{ route('job.task.single',$element -> id) }}" class="link-j1" title="View Job">View Job</a></li>
+                       
+                                                    <li><a href="{{ route('job.task.single',Crypt::encrypt($element -> id)) }}" class="link-j1" title="Apply Now">APPLY NOW</a></li>
+                                                      
+
+                                                    <li><a href="{{ route('job.task.single',Crypt::encrypt($element -> id)) }}" class="link-j1" title="View Job">View Job</a></li>
                                                     <li class="bkd-pm"><button class="bookmark1" title="bookmark"><i class="fas fa-heart"></i></button></li>
                                                 </ul>
                                             </div>

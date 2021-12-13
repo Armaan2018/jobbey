@@ -93,7 +93,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
  	Route::get('jobs/view-task/delete-applicants/{id}',[TaskController::class,'deleteApplicants'])->name('delete.applicants');
 
- 	 Route::get('/agreement',[TaskController::class,'agreeShow'])->name('agreement');
- 	 Route::get('jobs/view-task/agreement/{id}',[TaskController::class,'agreeFinal'])->name('agreement.sign');
+ 	 Route::get('/agreement/{id}',[TaskController::class,'agreeShow'])->name('agreement');
+ 	 Route::get('jobs/view-task/newagree/{id}',[TaskController::class,'agreeFinal'])->name('agreement.sign');
 
 

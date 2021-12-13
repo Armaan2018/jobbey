@@ -3,6 +3,16 @@
 @section('main-content')
 @if (Auth::check())
     @if(Auth::user() -> role == 'company')
+
+    @foreach ($agreeis as $task)
+     @foreach ($task -> applieds as $applid)
+      @foreach ($applid -> users as $useridR)
+         
+
+
+  
+
+
     <body class="main_invoice">
     <div class="invc_header">
         <div class="container">
@@ -50,7 +60,7 @@
                                         <h4>Freelancer</h4>
                                         <ul>
                                             <li>
-                                                <div class="vdt-list">Rock William</div>
+                                                <div class="vdt-list">{{$useridR -> name}}</div>
                                             </li>
                                             <li>
                                                 <div class="vdt-list">133, Dracut</div>
@@ -72,7 +82,7 @@
                                         <h4>Company</h4>
                                         <ul>
                                             <li>
-                                                <div class="vdt-list">Jobby LTD</div>
+                                                <div class="vdt-list">{{Auth::user() -> name}}</div>
                                             </li>
                                             <li>
                                                 <div class="vdt-list">#1234, Shahid karnail Singh Nagar,</div>
@@ -113,7 +123,9 @@
     </section>
 
 </body>
-
+      @endforeach
+    @endforeach
+ @endforeach
     @endif
 @endif
 @endsection
